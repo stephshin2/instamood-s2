@@ -2,33 +2,122 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-  <script src="./script.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
+
+	<meta name="viewport" content="width=device-width, user-scalable=false”>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Optional theme -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="./script.js"></script>
 	<title>Instamood</title>
 </head>
+
+
 <body ng-app="Instamood">
+
 	<div class="container" ng-controller="MainCtrl">
-		<div class="row">
-			<div class="login-btn btn" ng-hide="hasToken" ng-click="getInstaPics()">
-				  <a href="https://api.instagram.com/oauth/authorize/?client_id=8ae6b7dda3b340b588c0734820a6ed11&redirect_uri=http://localhost:8001&response_type=token" class="btn btn-info btn-lg btn-block">
-          <i class="fa fa-instagram"></i>
-            Log in with Instagram
-          </a>
+		
+		<div class="big_container">
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="login-btn btn" ng-hide="hasToken" ng-click="getInstaPics()">
+						<a href="https://api.instagram.com/oauth/authorize/?client_id=b8da7b5033ab49ed97a27f2f86b15f17&redirect_uri=http://localhost:8000&response_type=token" class="btn btn-info btn-lg btn-block">
+							<i class="fa fa-instagram"></i>
+							Log in with Instagram
+						</a>
+					</div>
+				</div>
 			</div>
-			<div ng-show="hasToken">
+			<div ng-show="hasToken"></div>
         <!-- challenge: make it so that you don't have to click this link for
-             the pictures the load -->
-				<a ng-click="getInstaPics()">Load pictures!</a>
-				<ul>
-          <!-- this loops through all your pictures -->
-					<li ng-repeat="pic in picArray track by $index">
-            {{ pic }} <!-- what should be here instead? -->
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	
+        the pictures the load -->
+        <div class="row">
+        	<div class="column">
+        		<div class="button-column">
+        			<a class="button" ng-click="getInstaPics()">Load pictures!</a>
+        		</div>
+        	</div>
+        	<div class="column">
+        		<div class="title">
+        			@steph.shin2: 
+        		</div>
+        	</div>
+
+
+        	<div class="column">
+        		<div class="stats"> <h3 class="stats_title"> Stats on Stats on Stats! </h3>
+        			<div ng-model="ego"> 
+        				Ego Score: {{egoScore}} 
+        			</div>
+
+        			<div ng-model="popularity">
+        				Popularity: {{averageLikes}} likes
+        			</div>
+
+        			<div ng-model="days">
+        				Active Days: {{activeDay}}
+        			</div>
+
+        			<div ng-model="brevity">
+        				Brevity: {{avgCaptionLength}} characters
+        			</div>
+
+        			<div ng-model="thirst">
+        				Visibility Thirst: {{avgHashtagLength}}
+        			</div>
+
+        			<p> 
+        				Overall Positivity Score: {{avgPositivity}} 
+        			</p>
+        		</div>
+        	</div>
+        </div>
+
+        <div class="row">
+        	<ul>
+        		<!-- this loops through all your pictures -->
+
+        		<li ng-repeat="pic in picArray track by $index">
+        			<div class="imagesbox clearfix">
+        				
+        				<div class="clearfix display">
+        					<div class="row">
+        						<p><img class="images" ng-src="{{ pic.images.standard_resolution.url }}"> </p>
+        					</div>
+
+
+        					<div class="row">
+        					<div class="text">
+        						<p> {{ pic.caption.text }} </p>
+        						<p> Positivity Score: {{ positivityArray[$index]}} </p>
+        					</div>
+        					</div>
+
+
+        				</div>
+        			</div>
+        		</div>
+
+        	</li>
+        </ul>
+
+
+     </div>
+  </div>
+</div>
+
+
 </body>
 </html>

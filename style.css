@@ -1,0 +1,95 @@
+*{
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+     font-family: poppins;
+
+}
+
+body {
+      background: url('https://lh3.googleusercontent.com/-J-4sVVOdVKg/U06j2WLUgnI/AAAAAAAABAg/BhpiU_vPEd4/w506-h281/tri.png') no-repeat center center fixed;
+     background-size: cover;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+.big_container {
+     margin: 0px auto;
+     width: 100%;
+}
+
+.button {
+     border: 2px solid #4169E1;
+     border-radius: 5%;
+     background-color: rgba(0,0,0,.3);
+     color: white;
+     padding: 10px;
+     display: block;
+     float: left;
+     width: 33.33333%;
+     font-size: 20px;
+}
+
+.title {
+	color: white;
+     display: block;
+     float: left;
+     width: 33.33333%;
+     text-align: center;
+     font-size: 50px;
+}
+
+.stats {
+     display: block;
+     float: left;
+     width: 33.33333%;
+     border: 2px solid #4169E1;
+     border-radius: 5%;
+     text-align: right;
+     padding-right: 20px;
+     padding-bottom: 10px;
+     background-color: rgba(0,0,0,.5);
+     color: white;
+}
+
+.images {
+     border: 2px solid #4169E1;
+     border-radius: 50%;
+     margin: 0px auto;
+     width: 80%;
+     float: left;
+     display: inline-block;
+}
+
+.display {
+     padding-bottom: 100px;
+}
+
+.imagesbox {
+     margin: 0px auto;
+     width: 33.3333%;
+     padding-top: 50px;
+     display: inline-block;
+     float: left;
+     height: 500px;
+     padding-bottom: 100px;
+
+
+}
+
+.text {
+     margin: 0px auto; 
+     width: 80%;
+}
